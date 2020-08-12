@@ -99,8 +99,8 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableData * blobData;
         long size = -1;
-        // if method is POST, PUT or PATCH, convert data string format
-        if([[method lowercaseString] isEqualToString:@"post"] || [[method lowercaseString] isEqualToString:@"put"] || [[method lowercaseString] isEqualToString:@"patch"]) {
+        // if method is POST, PUT, PATCH or DELETE, convert data string format
+        if([[method lowercaseString] isEqualToString:@"post"] || [[method lowercaseString] isEqualToString:@"put"] || [[method lowercaseString] isEqualToString:@"patch"] || [[method lowercaseString] isEqualToString:@"delete"]) {
             // generate octet-stream body
             if(body != nil) {
                 __block NSString * cType = [[self class] getHeaderIgnoreCases:@"content-type" fromHeaders:mheaders];
